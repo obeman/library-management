@@ -1,0 +1,248 @@
+{
+  "info": {
+    "name": "Library Management API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Authors",
+      "item": [
+        {
+          "name": "Create Author",
+          "request": {
+            "method": "POST",
+            "url": "http://localhost:8080/authors",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"John Doe\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Get All Authors",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:8080/authors"
+          }
+        },
+        {
+          "name": "Get Author by ID",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:8080/authors/1"
+          }
+        },
+        {
+          "name": "Update Author",
+          "request": {
+            "method": "PUT",
+            "url": "http://localhost:8080/authors/1",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Jane Doe\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete Author",
+          "request": {
+            "method": "DELETE",
+            "url": "http://localhost:8080/authors/1"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Books",
+      "item": [
+        {
+          "name": "Create Book",
+          "request": {
+            "method": "POST",
+            "url": "http://localhost:8080/books",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"The Great Gatsby\",\n  \"authorId\": 1,\n  \"publishedYear\": 1925\n}"
+            }
+          }
+        },
+        {
+          "name": "Get All Books",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:8080/books"
+          }
+        },
+        {
+          "name": "Get Book by ID",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:8080/books/1"
+          }
+        },
+        {
+          "name": "Update Book",
+          "request": {
+            "method": "PUT",
+            "url": "http://localhost:8080/books/1",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"The Great Gatsby (Updated)\",\n  \"authorId\": 1,\n  \"publishedYear\": 1925\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete Book",
+          "request": {
+            "method": "DELETE",
+            "url": "http://localhost:8080/books/1"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Members",
+      "item": [
+        {
+          "name": "Create Member",
+          "request": {
+            "method": "POST",
+            "url": "http://localhost:8080/members",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Alice Smith\",\n  \"email\": \"alice@example.com\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Get All Members",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:8080/members"
+          }
+        },
+        {
+          "name": "Get Member by ID",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:8080/members/1"
+          }
+        },
+        {
+          "name": "Update Member",
+          "request": {
+            "method": "PUT",
+            "url": "http://localhost:8080/members/1",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Alice Johnson\",\n  \"email\": \"alice.johnson@example.com\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete Member",
+          "request": {
+            "method": "DELETE",
+            "url": "http://localhost:8080/members/1"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Borrowed Books",
+      "item": [
+        {
+          "name": "Create Borrowed Book",
+          "request": {
+            "method": "POST",
+            "url": "http://localhost:8080/borrowed-books",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"bookId\": 1,\n  \"memberId\": 1,\n  \"borrowedDate\": \"2023-01-01\",\n  \"dueDate\": \"2023-01-15\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Get All Borrowed Books",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:8080/borrowed-books"
+          }
+        },
+        {
+          "name": "Get Borrowed Book by ID",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:8080/borrowed-books/1"
+          }
+        },
+        {
+          "name": "Update Borrowed Book",
+          "request": {
+            "method": "PUT",
+            "url": "http://localhost:8080/borrowed-books/1",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"bookId\": 1,\n  \"memberId\": 1,\n  \"borrowedDate\": \"2023-01-01\",\n  \"dueDate\": \"2023-01-20\",\n  \"returnedDate\": \"2023-01-18\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete Borrowed Book",
+          "request": {
+            "method": "DELETE",
+            "url": "http://localhost:8080/borrowed-books/1"
+          }
+        }
+      ]
+    }
+  ]
+} 
