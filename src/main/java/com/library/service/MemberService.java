@@ -52,6 +52,12 @@ public class MemberService {
         return convertToDTO(member);
     }
 
+    public List<MemberDTO> searchByName(String name) {
+        return memberRepository.searchByName(name).stream()
+                .map(this::convertToDTO)
+                .collect(Collectors.toList());
+    }
+
     private MemberDTO convertToDTO(Member member) {
         MemberDTO dto = new MemberDTO();
         dto.setId(member.getId());

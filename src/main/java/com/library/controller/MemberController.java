@@ -40,4 +40,9 @@ public class MemberController {
     public ResponseEntity<MemberDTO> getMemberById(@PathVariable Long id) {
         return ResponseEntity.ok(memberService.getMemberById(id));
     }
+
+    @GetMapping("/search")
+    public ResponseEntity<List<MemberDTO>> searchMembers(@RequestParam(required = false) String name) {
+        return ResponseEntity.ok(memberService.searchByName(name));
+    }
 } 

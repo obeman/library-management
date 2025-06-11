@@ -48,6 +48,12 @@ public class AuthorService {
         return convertToDTO(author);
     }
 
+    public List<AuthorDTO> searchByName(String name) {
+        return authorRepository.searchByName(name).stream()
+                .map(this::convertToDTO)
+                .collect(Collectors.toList());
+    }
+
     private AuthorDTO convertToDTO(Author author) {
         AuthorDTO dto = new AuthorDTO();
         dto.setId(author.getId());

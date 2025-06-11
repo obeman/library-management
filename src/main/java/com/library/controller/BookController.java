@@ -41,4 +41,9 @@ public class BookController {
     public ResponseEntity<BookDTO> getBookById(@PathVariable Long id) {
         return ResponseEntity.ok(bookService.getBookById(id));
     }
+
+    @GetMapping("/search")
+    public ResponseEntity<List<BookDTO>> searchBooks(@RequestParam(required = false) String title) {
+        return ResponseEntity.ok(bookService.searchByTitle(title));
+    }
 } 

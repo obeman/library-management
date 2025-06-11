@@ -40,4 +40,9 @@ public class AuthorController {
     public ResponseEntity<AuthorDTO> getAuthorById(@PathVariable Long id) {
         return ResponseEntity.ok(authorService.getAuthorById(id));
     }
+
+    @GetMapping("/search")
+    public ResponseEntity<List<AuthorDTO>> searchAuthors(@RequestParam(required = false) String name) {
+        return ResponseEntity.ok(authorService.searchByName(name));
+    }
 } 

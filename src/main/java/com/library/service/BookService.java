@@ -68,6 +68,12 @@ public class BookService {
         return convertToDTO(book);
     }
 
+    public List<BookDTO> searchByTitle(String title) {
+        return bookRepository.searchByTitle(title).stream()
+                .map(this::convertToDTO)
+                .collect(Collectors.toList());
+    }
+
     private BookDTO convertToDTO(Book book) {
         BookDTO dto = new BookDTO();
         dto.setId(book.getId());
