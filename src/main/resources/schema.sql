@@ -1,4 +1,4 @@
--- Drop tables if they exist
+-- Drop tables if they exist (in correct order due to foreign key constraints)
 DROP TABLE IF EXISTS borrowed_book;
 DROP TABLE IF EXISTS book;
 DROP TABLE IF EXISTS author;
@@ -10,6 +10,14 @@ CREATE TABLE author (
     name VARCHAR(100) NOT NULL
 );
 
+-- Create member table
+CREATE TABLE member (
+    id BIGSERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    phone VARCHAR(20) NOT NULL
+);
+
 -- Create book table
 CREATE TABLE book (
     id BIGSERIAL PRIMARY KEY,
@@ -17,15 +25,8 @@ CREATE TABLE book (
     category VARCHAR(50) NOT NULL,
     publishing_year INTEGER NOT NULL,
     author_id BIGINT NOT NULL,
-    FOREIGN KEY (author_id) REFERENCES author(id)
-);
-
--- Create member table
-CREATE TABLE member (
-    id BIGSERIAL PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    email VARCHAR(100) UNIQUE NOT NULL,
-    phone VARCHAR(20) NOT NULL
+    CONSTRAINT fk_book_author FOREIGN KEY (author_id) 
+        REFERENCES author(id) ON DELETE CASCADE
 );
 
 -- Create borrowed_book table
@@ -35,6 +36,8 @@ CREATE TABLE borrowed_book (
     member_id BIGINT NOT NULL,
     borrow_date DATE NOT NULL,
     return_date DATE,
-    FOREIGN KEY (book_id) REFERENCES book(id),
-    FOREIGN KEY (member_id) REFERENCES member(id)
+    CONSTRAINT fk_borrowed_book_book FOREIGN KEY (book_id) 
+        REFERENCES book(id) ON DELETE CASCADE,
+    CONSTRAINT fk_borrowed_book_member FOREIGN KEY (member_id) 
+        REFERENCES member(id) ON DELETE CASCADE
 ); 
